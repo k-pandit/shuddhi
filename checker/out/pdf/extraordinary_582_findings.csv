@@ -1,0 +1,3 @@
+﻿id,page,rule,kind,bulk,protected,from,to,why
+c42754d85463,1,CONSISTENCY,query,False,,PLAIN,,'PLAIN' (p1) vs 'Plan' (p2): same name spelled differently?
+abba9dfca6f1,2,CONSISTENCY,query,False,,Plan,,'Plan' (p2) vs 'PLAIN' (p1): same name spelled differently?

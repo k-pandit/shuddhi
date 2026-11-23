@@ -1,0 +1,254 @@
+{
+ "seed": 42,
+ "corpus_sha256": "c94b9bf84ed4426f022ce748aea666032938dd14d9f2d9d095900b868b1caeba",
+ "corpus_lines": 373,
+ "documents": 46,
+ "clean_words": 4257,
+ "seeded": {
+  "shuddhi": {
+   "per_type": {
+    "swap": {
+     "seeded": 53,
+     "found": 53,
+     "recall": 1.0,
+     "ci95": [
+      0.932,
+      1.0
+     ]
+    },
+    "drop": {
+     "seeded": 72,
+     "found": 70,
+     "recall": 0.972,
+     "ci95": [
+      0.904,
+      0.992
+     ]
+    },
+    "double-letter": {
+     "seeded": 67,
+     "found": 66,
+     "recall": 0.985,
+     "ci95": [
+      0.92,
+      0.997
+     ]
+    },
+    "known-misspelling": {
+     "seeded": 25,
+     "found": 25,
+     "recall": 1.0,
+     "ci95": [
+      0.867,
+      1.0
+     ]
+    },
+    "doubled-word": {
+     "seeded": 89,
+     "found": 89,
+     "recall": 1.0,
+     "ci95": [
+      0.959,
+      1.0
+     ]
+    },
+    "space-before-punct": {
+     "seeded": 38,
+     "found": 38,
+     "recall": 1.0,
+     "ci95": [
+      0.908,
+      1.0
+     ]
+    },
+    "double-space": {
+     "seeded": 86,
+     "found": 86,
+     "recall": 1.0,
+     "ci95": [
+      0.957,
+      1.0
+     ]
+    },
+    "name-variant": {
+     "seeded": 33,
+     "found": 19,
+     "recall": 0.576,
+     "ci95": [
+      0.408,
+      0.728
+     ]
+    }
+   },
+   "total_seeded": 463,
+   "total_found": 446,
+   "recall": 0.963,
+   "recall_ci95": [
+    0.942,
+    0.977
+   ],
+   "marks_in_seeded_paragraphs": 463,
+   "false_alarms": 2,
+   "precision": 0.996,
+   "marks_per_1000_unseeded_words": 2.1,
+   "spelling_fix_correct": "177/213"
+  },
+  "baseline": {
+   "per_type": {
+    "swap": {
+     "seeded": 53,
+     "found": 53,
+     "recall": 1.0,
+     "ci95": [
+      0.932,
+      1.0
+     ]
+    },
+    "drop": {
+     "seeded": 72,
+     "found": 72,
+     "recall": 1.0,
+     "ci95": [
+      0.949,
+      1.0
+     ]
+    },
+    "double-letter": {
+     "seeded": 67,
+     "found": 67,
+     "recall": 1.0,
+     "ci95": [
+      0.946,
+      1.0
+     ]
+    },
+    "known-misspelling": {
+     "seeded": 25,
+     "found": 25,
+     "recall": 1.0,
+     "ci95": [
+      0.867,
+      1.0
+     ]
+    },
+    "doubled-word": {
+     "seeded": 89,
+     "found": 0,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.041
+     ]
+    },
+    "space-before-punct": {
+     "seeded": 38,
+     "found": 0,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.092
+     ]
+    },
+    "double-space": {
+     "seeded": 86,
+     "found": 0,
+     "recall": 0.0,
+     "ci95": [
+      0.0,
+      0.043
+     ]
+    },
+    "name-variant": {
+     "seeded": 33,
+     "found": 33,
+     "recall": 1.0,
+     "ci95": [
+      0.896,
+      1.0
+     ]
+    }
+   },
+   "total_seeded": 463,
+   "total_found": 250,
+   "recall": 0.54,
+   "recall_ci95": [
+    0.494,
+    0.585
+   ],
+   "marks_in_seeded_paragraphs": 515,
+   "false_alarms": 135,
+   "precision": 0.738,
+   "marks_per_1000_unseeded_words": 46.3,
+   "spelling_fix_correct": "172/217"
+  }
+ },
+ "adversarial": {
+  "cases": 208,
+  "by_kind": {
+   "amount": 16,
+   "date": 16,
+   "reference": 16,
+   "section": 16,
+   "corrigendum": 16,
+   "quotation": 16,
+   "citation": 16,
+   "bengali": 16,
+   "indic-reduplication": 16,
+   "indic-digits": 16,
+   "ai-amount-rewrite": 16,
+   "ai-date-rewrite": 16,
+   "ai-name-rewrite": 16
+  },
+  "shuddhi_violations": 0,
+  "shuddhi_changed_must_keep": 0,
+  "old_violations": 112,
+  "old_changed_must_keep": 0,
+  "ai_blocked": 17,
+  "ai_queried": 10,
+  "ai_superseded": 21,
+  "ai_applied": 0,
+  "examples_old": [
+   {
+    "kind": "date",
+    "before": "with effect from 01-04-2027 till further orders ,the Committee shall meet.",
+    "after_old_rules": "with effect from 1st April, 2027 till further orders,the Committee shall meet."
+   },
+   {
+    "kind": "date",
+    "before": "with effect from 31.03.2028 till further orders ,the Committee shall meet.",
+    "after_old_rules": "with effect from 31st March, 2028 till further orders,the Committee shall meet."
+   },
+   {
+    "kind": "reference",
+    "before": "Order issued vide No.AAP. 37/2023/393  dated 4-11-2026 is hereby cancelled .",
+    "after_old_rules": "Order issued vide No.AAP. 37/2023/393 dated 4th November, 2026 is hereby cancelled."
+   },
+   {
+    "kind": "date",
+    "before": "with effect from 13/10/2023 till further orders ,the Committee shall meet.",
+    "after_old_rules": "with effect from 13th October, 2023 till further orders,the Committee shall meet."
+   },
+   {
+    "kind": "reference",
+    "before": "Order issued vide No. E- Comp. No.: 800346/2026/12  dated 29/02/2024 is hereby cancelled .",
+    "after_old_rules": "Order issued vide No. E- Comp. No.: 800346/2026/12 dated 29th February, 2024 is hereby cancelled."
+   },
+   {
+    "kind": "reference",
+    "before": "Order issued vide ECF No. 123456  dated 15.08.1947 is hereby cancelled .",
+    "after_old_rules": "Order issued vide ECF No. 123456 dated 15th August, 1947 is hereby cancelled."
+   },
+   {
+    "kind": "date",
+    "before": "with effect from 4-11-2026 till further orders ,the Committee shall meet.",
+    "after_old_rules": "with effect from 4th November, 2026 till further orders,the Committee shall meet."
+   },
+   {
+    "kind": "reference",
+    "before": "Order issued vide No. TAD.12/2026/45  dated 30-06-2027 is hereby cancelled .",
+    "after_old_rules": "Order issued vide No. TAD.12/2026/45 dated 30th June, 2027 is hereby cancelled."
+   }
+  ],
+  "old_cases": 160
+ }
+}

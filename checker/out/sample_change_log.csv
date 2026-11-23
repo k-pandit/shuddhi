@@ -1,0 +1,19 @@
+﻿Paragraph,Language,Rule,Before,After,Reason,Status
+5,English,REPEAT, the,,Repeated word 'the',tracked change
+5,English,DATE,12-11-2026,,Numeric date: confirm day-month order and house style,query (Word comment)
+5,English,SPELL,Commitee,Committee,Spelling,tracked change
+5,English,DOUBLE-SPACE,  , ,Extra spaces,tracked change
+9,English,NUMBERING,,,Numbering jumps from 3 to 5,query (Word comment)
+10,English,CASE,Deputy commissioner,Deputy Commissioner,Designation capitalisation,tracked change
+10,English,TERM,Kamrup Metro,Kamrup (Metro),Term list: Official district name,tracked change
+10,English,SPACE-PUNCT, ,,"Space before ','",tracked change
+11,English,SPELL,recieve,receive,Spelling,tracked change
+11,English,TERM,Gauhati,Guwahati,Term list: City name is Guwahati (institution names keep 'Gauhati'),tracked change
+11,English,TERM,Gauhati,,Term list: City name is Guwahati (institution names keep 'Gauhati') [protected zone (institution): query only],query (Word comment)
+14,Assamese,NUKTA,য়,য়,Non-standard encoding of a nukta letter (invisible difference),tracked change
+15,Assamese,AS-RA,চরকারে,চৰকাৰে,Bengali letter র in Assamese text (Assamese uses ৰ),tracked change
+15,Assamese,SPACE-PUNCT, ,,Space before '।',tracked change
+16,Assamese,DANDA,|,।,Pipe typed instead of danda,tracked change
+17,Assamese,DIGITS,30,,Latin digits mixed with Indic digits: confirm the intended style,query (Word comment)
+18,Assamese,REPEAT,এই এই,,Repeated word 'এই': check whether intended,query (Word comment)
+20,Hindi,DANDA, |,।,Pipe typed instead of danda,tracked change

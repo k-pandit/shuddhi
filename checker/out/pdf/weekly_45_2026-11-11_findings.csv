@@ -1,0 +1,3 @@
+﻿id,page,rule,kind,bulk,protected,from,to,why
+9933d606861b,9,SPELL,fix,False,False,granated,granted,Not in the dictionary
+d4a5f0cc2cff,9,SPELL,fix,False,False,gramated,gradated,Not in the dictionary

@@ -1,0 +1,20 @@
+H|GOVERNMENT OF ASSAM
+H|SAMPLE DEPARTMENT, DISPUR
+H|NOTIFICATION
+C|No. SMP.45/2026/12, Dated Dispur, the 19th November, 2026
+P|In pursuance of the the decision taken in the review meeting held on 12-11-2026, a District Level Stationery Monitoring Commitee is hereby constituted in each district  with the following members :
+P|1. Deputy Commissioner of the district – Chairman
+P|2. Additional Deputy Commissioner (Supply) – Member Secretary
+P|3. District Treasury Officer – Member
+P|5. Representative of the Directorate of Printing and Stationery – Member
+P|The Committee shall meet once in every three months and shall ensure that all members attends the meeting. The Deputy commissioner, Kamrup Metro shall submit the first report to the Department by 30th November , 2026.
+P|Members shall recieve no additional remuneration for this work. Correspondence may be addressed to the Gauhati office of the Directorate, near Gauhati High Court.
+P|This notification shall come into force with immediate effect.
+R|Sd/- Sample Officer, Secretary to the Government of Assam
+H|অসমীয়া সংস্কৰণ
+P|অসম চ{RA}কা{RA}ে প্ৰতিখন জিলাত লেখন সামগ্ৰীৰ যোগান তদাৰক কৰিবলৈ এখন সমিতি গঠন কৰিছে ।
+P|জিলা আ{YYA}ুক্ত সমিতিৰ সভাপতি হ’ব|
+P|সমিতিখনে প্ৰতি তিনি মাহত এবাৰ বৈঠকত মিলিত হ’ব আৰু ২০২৬ চনৰ 30 নৱেম্বৰৰ ভিতৰত প্ৰথম প্ৰতিবেদন দাখিল কৰিব।
+P|এই এই জাননী তৎক্ষণাৎ বলবৎ হ’ব।
+H|हिन्दी संस्करण
+P|यह अधिसूचना तत्काल प्रभाव से लागू होगी |

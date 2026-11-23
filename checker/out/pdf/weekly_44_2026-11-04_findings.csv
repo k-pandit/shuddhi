@@ -1,0 +1,10 @@
+﻿id,page,rule,kind,bulk,protected,from,to,why
+9571f6970a7d,3,SPACE-PUNCT,fix,True,False, ,,"Space before ','"
+9fb87a7d0b75,3,SPACE-PUNCT,fix,True,False, ,,"Space before ','"
+e5bcee9ef49f,5,SPACE-PUNCT,fix,True,False, ,,"Space before ','"
+66bf90982d3d,16,SPACE-PUNCT,fix,True,False, ,,"Space before ','"
+b904a28d734a,16,SPACE-PUNCT,fix,True,False, ,,Space before '.'
+b904a28d734a,16,SPACE-PUNCT,fix,True,False, ,,Space before '.'
+66bf90982d3d,16,SPACE-PUNCT,fix,True,False, ,,"Space before ','"
+f97450de65e4,21,SPELL,fix,False,False,financialy,financially,Not in the dictionary
+f85baeafe29e,53,DATE,query,False,True,4-11-2026,,Numeric date: confirm day-month order and house style

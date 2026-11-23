@@ -1,0 +1,870 @@
+{
+ "file": "weekly_44_2026-11-04.pdf",
+ "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+ "output_sha256": "ffcdb5c0b5c1c3280904d6f4e5f8b154ce889e04814e3601e7fa8447177206c5",
+ "pages": 53,
+ "pages_by_class": {
+  "MIXED": 4,
+  "TEXT": 48,
+  "SCANNED": 1
+ },
+ "words_total": 17879,
+ "words_checked": 3263,
+ "legacy_font_words_not_checked": 269,
+ "percent_words_checked": 18.3,
+ "unicode_assamese_chars": 0,
+ "findings_total": 9,
+ "findings_by_kind": {
+  "fix": 8,
+  "query": 1
+ },
+ "findings_by_rule": {
+  "SPACE-PUNCT": 7,
+  "SPELL": 1,
+  "DATE": 1
+ },
+ "page_content_unchanged": true,
+ "pages_excluded_personal_data": [
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52
+ ],
+ "words_excluded_personal_data": 0,
+ "page_detail": [
+  {
+   "class": "MIXED",
+   "chars": 1509,
+   "legacy_chars": 704,
+   "text_chars": 698,
+   "image_cover": 0.026,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Bold": 658,
+    "Geetanjalibold": 640,
+    "Times-Roman": 146,
+    "Geetanjalilight": 46,
+    "KalidasBold": 11,
+    "Geetanjalipbold": 7
+   },
+   "page": 1,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 2542,
+   "legacy_chars": 0,
+   "text_chars": 2207,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 2421,
+    "Times-Bold": 121
+   },
+   "page": 2,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 3872,
+   "legacy_chars": 0,
+   "text_chars": 3316,
+   "image_cover": 0.001,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 3714,
+    "Times-Bold": 158
+   },
+   "page": 3,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 2685,
+   "legacy_chars": 0,
+   "text_chars": 2277,
+   "image_cover": 0.002,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 2520,
+    "Times-Bold": 165
+   },
+   "page": 4,
+   "privacy_flag": null
+  },
+  {
+   "class": "MIXED",
+   "chars": 2478,
+   "legacy_chars": 962,
+   "text_chars": 1295,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 1439,
+    "Geetanjalilight": 868,
+    "Times-Bold": 77,
+    "Geetanjaliplight": 50,
+    "Geetanjalibold": 34,
+    "Geetanjalipbold": 10
+   },
+   "page": 5,
+   "privacy_flag": null
+  },
+  {
+   "class": "SCANNED",
+   "chars": 184,
+   "legacy_chars": 0,
+   "text_chars": 160,
+   "image_cover": 0.581,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 157,
+    "Times-Bold": 27
+   },
+   "page": 6
+  },
+  {
+   "class": "TEXT",
+   "chars": 1949,
+   "legacy_chars": 0,
+   "text_chars": 1680,
+   "image_cover": 0.017,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 1793,
+    "F2": 156
+   },
+   "page": 7,
+   "privacy_flag": "disciplinary",
+   "class_note": "excluded: disciplinary"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2748,
+   "legacy_chars": 0,
+   "text_chars": 2361,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 2661,
+    "F2": 87
+   },
+   "page": 8,
+   "privacy_flag": "disciplinary",
+   "class_note": "excluded: disciplinary"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2981,
+   "legacy_chars": 0,
+   "text_chars": 2542,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 2883,
+    "F2": 98
+   },
+   "page": 9,
+   "privacy_flag": "disciplinary",
+   "class_note": "excluded: disciplinary"
+  },
+  {
+   "class": "TEXT",
+   "chars": 3438,
+   "legacy_chars": 0,
+   "text_chars": 2916,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 3363,
+    "F2": 75
+   },
+   "page": 10,
+   "privacy_flag": "vigilance",
+   "class_note": "excluded: vigilance"
+  },
+  {
+   "class": "TEXT",
+   "chars": 3501,
+   "legacy_chars": 0,
+   "text_chars": 2949,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 3453,
+    "F2": 48
+   },
+   "page": 11,
+   "privacy_flag": "vigilance",
+   "class_note": "excluded: vigilance"
+  },
+  {
+   "class": "TEXT",
+   "chars": 3348,
+   "legacy_chars": 0,
+   "text_chars": 2854,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 3250,
+    "F2": 98
+   },
+   "page": 12,
+   "privacy_flag": "disciplinary",
+   "class_note": "excluded: disciplinary"
+  },
+  {
+   "class": "TEXT",
+   "chars": 3599,
+   "legacy_chars": 0,
+   "text_chars": 3082,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 3519,
+    "F2": 80
+   },
+   "page": 13,
+   "privacy_flag": "disciplinary",
+   "class_note": "excluded: disciplinary"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1679,
+   "legacy_chars": 0,
+   "text_chars": 1445,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F1": 1534,
+    "F2": 145
+   },
+   "page": 14,
+   "privacy_flag": "vigilance",
+   "class_note": "excluded: vigilance"
+  },
+  {
+   "class": "MIXED",
+   "chars": 947,
+   "legacy_chars": 23,
+   "text_chars": 787,
+   "image_cover": 0.18,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 525,
+    "Times-Bold": 340,
+    "Tunga,Bold": 59,
+    "Geetanjalibold": 16,
+    "Geetanjalipbold": 5,
+    "GeetanjalipboldItalic": 2
+   },
+   "page": 15,
+   "privacy_flag": "vigilance",
+   "class_note": "excluded: vigilance"
+  },
+  {
+   "class": "TEXT",
+   "chars": 246,
+   "legacy_chars": 0,
+   "text_chars": 212,
+   "image_cover": 0.407,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 184,
+    "Times-Bold": 62
+   },
+   "page": 16,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 1191,
+   "legacy_chars": 0,
+   "text_chars": 1028,
+   "image_cover": 0.093,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 647,
+    "F1": 543,
+    "F3": 1
+   },
+   "page": 17,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 1049,
+   "legacy_chars": 0,
+   "text_chars": 893,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1017,
+    "F1": 32
+   },
+   "page": 18,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 1385,
+   "legacy_chars": 0,
+   "text_chars": 1177,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1374,
+    "F1": 11
+   },
+   "page": 19,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 1806,
+   "legacy_chars": 0,
+   "text_chars": 1548,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1775,
+    "F1": 31
+   },
+   "page": 20,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 3183,
+   "legacy_chars": 0,
+   "text_chars": 2697,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 3085,
+    "F1": 98
+   },
+   "page": 21,
+   "privacy_flag": null
+  },
+  {
+   "class": "TEXT",
+   "chars": 3403,
+   "legacy_chars": 0,
+   "text_chars": 2797,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 3360,
+    "F1": 43
+   },
+   "page": 22,
+   "privacy_flag": "vigilance",
+   "class_note": "excluded: vigilance"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1993,
+   "legacy_chars": 0,
+   "text_chars": 1714,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1883,
+    "F1": 110
+   },
+   "page": 23,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1916,
+   "legacy_chars": 0,
+   "text_chars": 1602,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1852,
+    "F1": 64
+   },
+   "page": 24,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2099,
+   "legacy_chars": 0,
+   "text_chars": 1768,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2019,
+    "F1": 80
+   },
+   "page": 25,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2001,
+   "legacy_chars": 0,
+   "text_chars": 1684,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1924,
+    "F1": 77
+   },
+   "page": 26,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1875,
+   "legacy_chars": 0,
+   "text_chars": 1575,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1802,
+    "F1": 73
+   },
+   "page": 27,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1917,
+   "legacy_chars": 0,
+   "text_chars": 1602,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1844,
+    "F1": 73
+   },
+   "page": 28,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1956,
+   "legacy_chars": 0,
+   "text_chars": 1646,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1874,
+    "F1": 82
+   },
+   "page": 29,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1978,
+   "legacy_chars": 0,
+   "text_chars": 1664,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1896,
+    "F1": 82
+   },
+   "page": 30,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1971,
+   "legacy_chars": 0,
+   "text_chars": 1664,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1891,
+    "F1": 80
+   },
+   "page": 31,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2009,
+   "legacy_chars": 0,
+   "text_chars": 1699,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1938,
+    "F1": 71
+   },
+   "page": 32,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2024,
+   "legacy_chars": 0,
+   "text_chars": 1704,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1943,
+    "F1": 81
+   },
+   "page": 33,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1978,
+   "legacy_chars": 0,
+   "text_chars": 1659,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1910,
+    "F1": 68
+   },
+   "page": 34,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1877,
+   "legacy_chars": 0,
+   "text_chars": 1575,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1799,
+    "F1": 78
+   },
+   "page": 35,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1824,
+   "legacy_chars": 0,
+   "text_chars": 1515,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1756,
+    "F1": 68
+   },
+   "page": 36,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1908,
+   "legacy_chars": 0,
+   "text_chars": 1607,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1835,
+    "F1": 73
+   },
+   "page": 37,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1991,
+   "legacy_chars": 0,
+   "text_chars": 1673,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1904,
+    "F1": 87
+   },
+   "page": 38,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1961,
+   "legacy_chars": 0,
+   "text_chars": 1653,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1884,
+    "F1": 77
+   },
+   "page": 39,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1905,
+   "legacy_chars": 0,
+   "text_chars": 1604,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1835,
+    "F1": 70
+   },
+   "page": 40,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1947,
+   "legacy_chars": 0,
+   "text_chars": 1637,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1876,
+    "F1": 71
+   },
+   "page": 41,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1808,
+   "legacy_chars": 0,
+   "text_chars": 1523,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1735,
+    "F1": 73
+   },
+   "page": 42,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2085,
+   "legacy_chars": 0,
+   "text_chars": 1756,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2011,
+    "F1": 74
+   },
+   "page": 43,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1998,
+   "legacy_chars": 0,
+   "text_chars": 1670,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1923,
+    "F1": 75
+   },
+   "page": 44,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2254,
+   "legacy_chars": 0,
+   "text_chars": 1917,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2174,
+    "F1": 80
+   },
+   "page": 45,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1942,
+   "legacy_chars": 0,
+   "text_chars": 1638,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1853,
+    "F1": 89
+   },
+   "page": 46,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 1897,
+   "legacy_chars": 0,
+   "text_chars": 1601,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1817,
+    "F1": 80
+   },
+   "page": 47,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2030,
+   "legacy_chars": 0,
+   "text_chars": 1717,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1946,
+    "F1": 84
+   },
+   "page": 48,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2435,
+   "legacy_chars": 0,
+   "text_chars": 2052,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2326,
+    "F1": 109
+   },
+   "page": 49,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2140,
+   "legacy_chars": 0,
+   "text_chars": 1809,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2025,
+    "F1": 115
+   },
+   "page": 50,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2028,
+   "legacy_chars": 0,
+   "text_chars": 1717,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 1945,
+    "F1": 83
+   },
+   "page": 51,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "TEXT",
+   "chars": 2114,
+   "legacy_chars": 0,
+   "text_chars": 1793,
+   "image_cover": 0.0,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "F2": 2032,
+    "F1": 82
+   },
+   "page": 52,
+   "privacy_flag": "name change",
+   "class_note": "excluded: name change"
+  },
+  {
+   "class": "MIXED",
+   "chars": 1444,
+   "legacy_chars": 263,
+   "text_chars": 1004,
+   "image_cover": 0.026,
+   "unicode_assamese_chars": 0,
+   "fonts": {
+    "Times-Roman": 823,
+    "Times-Bold": 329,
+    "Geetanjalilight": 133,
+    "Geetanjalibold": 111,
+    "Helvetica-Bold": 21,
+    "KalidasBold": 11
+   },
+   "page": 53,
+   "privacy_flag": null
+  }
+ ]
+}

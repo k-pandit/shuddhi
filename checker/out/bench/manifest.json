@@ -1,0 +1,674 @@
+{
+ "corpus_sha256": "c94b9bf84ed4426f022ce748aea666032938dd14d9f2d9d095900b868b1caeba",
+ "lines": 373,
+ "pages": [
+  {
+   "file": "extraordinary_582.pdf",
+   "file_sha256": "3839995a78645dd88c511dde4dafae57353aa8ce64db1a6c150bdfb974351f23",
+   "page": 1,
+   "used": true,
+   "lines": 2
+  },
+  {
+   "file": "extraordinary_582.pdf",
+   "file_sha256": "3839995a78645dd88c511dde4dafae57353aa8ce64db1a6c150bdfb974351f23",
+   "page": 2,
+   "used": true,
+   "lines": 4
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 1,
+   "used": true,
+   "lines": 9
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 2,
+   "used": true,
+   "lines": 24
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 3,
+   "used": true,
+   "lines": 44
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 4,
+   "used": true,
+   "lines": 28
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 5,
+   "used": true,
+   "lines": 16
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 6,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 7,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 8,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 9,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 10,
+   "used": false,
+   "reason": "personal data: vigilance"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 11,
+   "used": false,
+   "reason": "personal data: vigilance"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 12,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 13,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 14,
+   "used": false,
+   "reason": "personal data: vigilance"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 15,
+   "used": false,
+   "reason": "personal data: vigilance"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 16,
+   "used": true,
+   "lines": 0
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 17,
+   "used": true,
+   "lines": 11
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 18,
+   "used": true,
+   "lines": 11
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 19,
+   "used": true,
+   "lines": 18
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 20,
+   "used": true,
+   "lines": 22
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 21,
+   "used": true,
+   "lines": 30
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 22,
+   "used": false,
+   "reason": "personal data: vigilance"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 23,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 24,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 25,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 26,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 27,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 28,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 29,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 30,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 31,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 32,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 33,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 34,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 35,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 36,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 37,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 38,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 39,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 40,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 41,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 42,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 43,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 44,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 45,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 46,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 47,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 48,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 49,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 50,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 51,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "page": 52,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_44_2026-11-04.pdf",
+   "file_sha256": "305bd41ba44f505a9698cada320e9e4ef2f2d0d42654d581afa2b1117373a287",
+   "page": 53,
+   "used": true,
+   "lines": 12
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 1,
+   "used": true,
+   "lines": 7
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 2,
+   "used": true,
+   "lines": 15
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 3,
+   "used": true,
+   "lines": 6
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 4,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 5,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 6,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 7,
+   "used": true,
+   "lines": 11
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 8,
+   "used": true,
+   "lines": 30
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 9,
+   "used": true,
+   "lines": 19
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 10,
+   "used": true,
+   "lines": 1
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 11,
+   "used": true,
+   "lines": 0
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 12,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 13,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 14,
+   "used": true,
+   "lines": 13
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 15,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 16,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 17,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 18,
+   "used": false,
+   "reason": "personal data: disciplinary"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 19,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 20,
+   "used": false,
+   "reason": "scanned"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 21,
+   "used": true,
+   "lines": 11
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 22,
+   "used": true,
+   "lines": 11
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "file_sha256": "1170c2f37d7889b885c3d1be39a9c55759b4083c335cfc6c57929163d50efcd9",
+   "page": 23,
+   "used": true,
+   "lines": 18
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 24,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 25,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 26,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 27,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 28,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 29,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 30,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 31,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 32,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 33,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 34,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 35,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 36,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 37,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 38,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 39,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 40,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 41,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 42,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 43,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 44,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 45,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 46,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 47,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 48,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 49,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 50,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 51,
+   "used": false,
+   "reason": "personal data: name change"
+  },
+  {
+   "file": "weekly_45_2026-11-11.pdf",
+   "page": 52,
+   "used": false,
+   "reason": "personal data: name change"
+  }
+ ]
+}

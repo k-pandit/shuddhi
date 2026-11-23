@@ -1,0 +1,7 @@
+pdfplumber==0.11.10
+pypdf==7.1.1
+reportlab
+rapidfuzz
+spylls
+defusedxml
+pytest

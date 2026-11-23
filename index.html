@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shuddhi prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Serif:wght@400;700&family=Noto+Serif+Bengali:wght@400;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --desk:#D9DFE5; --paper:#FFFFFF; --ink:#1B1F24; --muted:#5A6470; --line:#C9D1DA;
+  --chrome:#22303D; --chrome-2:#33465A;
+  --red:#C21F32; --red-soft:#FCE9EB; --blue:#2851B5; --blue-soft:#E8EEFB;
+  --qy:#7A5A00; --qy-soft:#FFF4D6; --done:#1D7A4C; --done-soft:#E3F3EA; --focus:#E8A317;
+  --serif:"Noto Serif","Noto Serif Bengali","Noto Serif Devanagari",Georgia,serif;
+  --sans:"Noto Sans","Noto Sans Bengali","Noto Sans Devanagari",system-ui,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--desk);color:var(--ink);font:400 15px/1.5 var(--sans)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+.notice{background:#11181F;color:#DCE3EA;font-size:13px;padding:6px 16px;text-align:center}
+header.bar{background:var(--chrome);color:#fff;padding:12px 24px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand b{font-size:20px;letter-spacing:.01em}
+.brand span{font-family:"Noto Sans Bengali",sans-serif;color:#F6B8C0}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tabs button{all:unset;cursor:pointer;padding:7px 14px;border-radius:4px;color:#C9D4DF}
+.tabs button:hover{background:var(--chrome-2);color:#fff}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--chrome);font-weight:700}
+.tabs button:focus-visible{outline:3px solid var(--focus)}
+.progress{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px;color:#C9D4DF}
+.progress .track{width:140px;height:6px;background:var(--chrome-2);border-radius:3px;overflow:hidden}
+.progress .fill{height:100%;background:#7FD1A6}
+
+.wrap{max-width:1360px;margin:0 auto;padding:20px 24px 48px}
+.docbar{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.docbar h1{font:700 22px/1.25 var(--sans);margin:0}
+.docbar .meta{color:var(--muted);font-size:13px;margin-top:2px}
+.langs{display:flex;gap:6px;flex-wrap:wrap}
+.lang{font-size:12px;padding:2px 9px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+
+.btn{cursor:pointer;border:1px solid var(--chrome);background:var(--chrome);color:#fff;padding:7px 13px;border-radius:4px;font-weight:600;white-space:nowrap}
+.btn:hover{background:var(--chrome-2)}
+.btn.ghost{background:#fff;color:var(--chrome)}
+.btn.ghost:hover{background:#F1F4F7}
+.btn.red{background:var(--red);border-color:var(--red)}
+.btn.sm{padding:4px 10px;font-size:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;align-items:start}
+.split>*{min-width:0}
+
+/* Galley proof */
+.galley{background:var(--paper);box-shadow:0 1px 0 #B9C3CD,0 8px 24px -12px rgba(34,48,61,.35);padding:36px 0 40px;position:relative}
+.galley-head{display:flex;justify-content:space-between;gap:12px;padding:0 40px 14px;margin-bottom:18px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:0}
+.txt{padding:4px 28px 4px 40px;font:400 17px/1.85 var(--serif);border-right:1px solid #E7EBEF}
+.row.h .txt{text-align:center;font-weight:700;letter-spacing:.02em}
+.row.c .txt{text-align:center;font-size:15px}
+.row.h2 .txt{font-weight:700;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line)}
+.row.li .txt{padding-left:64px}
+.row.sig .txt{text-align:right;font-style:italic}
+.margin{padding:6px 10px;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.mm{all:unset;cursor:pointer;display:inline-flex;gap:6px;align-items:baseline;font:600 13px/1.3 var(--sans);padding:1px 6px;border-radius:3px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mm:focus-visible{outline:3px solid var(--focus)}
+.mm.r{color:var(--red)} .mm.b{color:var(--blue)} .mm.q{color:var(--qy)}
+.mm:hover{background:#F2F4F6}
+.n{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:9px;font:700 11px/1 var(--sans);color:#fff;padding:0 4px}
+.r .n,.n.r{background:var(--red)} .b .n,.n.b{background:var(--blue)} .q .n,.n.q{background:var(--qy)} .n.ok{background:var(--done)}
+
+.mk{border-radius:2px;cursor:pointer}
+.mk del{color:var(--red);text-decoration:line-through;text-decoration-thickness:2px}
+.mk ins{text-decoration:none;border-bottom:2px solid currentColor;margin-left:1px}
+.mk.r ins{color:var(--red)} .mk.b del{color:var(--blue)} .mk.b ins{color:var(--blue)}
+.mk.b del{text-decoration-style:solid}
+.mk.q .qtext{background:var(--qy-soft);border-bottom:2px wavy var(--qy)}
+.mk sup{font:700 10px/1 var(--sans);margin-left:2px;vertical-align:super}
+.mk.r sup{color:var(--red)} .mk.b sup{color:var(--blue)} .mk.q sup{color:var(--qy)}
+.mk.focus{outline:2px solid var(--focus);outline-offset:2px}
+.acc{background:var(--done-soft);border-radius:2px}
+.ws{color:#9AA4AF;font-family:var(--sans);font-size:.8em}
+
+.stamp{position:absolute;top:56px;right:190px;transform:rotate(-8deg);border:3px double var(--red);color:var(--red);padding:6px 14px;font:700 14px/1.2 var(--sans);letter-spacing:.06em;text-align:center;background:rgba(255,255,255,.85);pointer-events:none}
+.stamp small{display:block;font-weight:600;letter-spacing:0;font-size:11px}
+
+/* Marks panel */
+.panel{background:#fff;border:1px solid var(--line);border-radius:6px;position:sticky;top:12px;max-height:calc(100vh - 24px);display:flex;flex-direction:column}
+.panel-head{padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.panel-head h2{font:700 16px/1.3 var(--sans);margin:0 0 10px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{all:unset;cursor:pointer;font-size:13px;padding:3px 10px;border-radius:999px;border:1px solid var(--line)}
+.filters button[aria-pressed="true"]{background:var(--chrome);color:#fff;border-color:var(--chrome)}
+.filters button:focus-visible{outline:3px solid var(--focus)}
+.bulk{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.list{overflow:auto;padding:6px 0}
+.card{padding:12px 16px;border-bottom:1px solid #EEF1F4}
+.card.focus{background:#FFF9E8}
+.card .top{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.card .top b{color:var(--ink);font-size:14px}
+.card .chg{font:400 16px/1.6 var(--serif);margin:6px 0 4px;word-break:break-word}
+.card .chg del{color:var(--red)} .card.b .chg del{color:var(--blue)}
+.card .chg ins{text-decoration:none;font-weight:700}
+.card .why{font-size:13px;color:var(--muted);margin:0 0 8px}
+.card .acts{display:flex;gap:6px;flex-wrap:wrap}
+.card .state{font-size:13px;font-weight:600}
+.state.accepted{color:var(--done)} .state.rejected{color:var(--muted)}
+.empty{padding:18px 16px;color:var(--muted)}
+
+/* Generic panels */
+.sheet{background:#fff;border:1px solid var(--line);border-radius:6px;padding:20px 22px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols>*{min-width:0}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+textarea,input[type=text],select{padding:9px 10px;border:1px solid #B4BEC9;border-radius:4px;background:#fff;color:var(--ink);min-width:0}
+textarea{font:400 16px/1.6 var(--serif);min-height:150px;resize:vertical;width:100%}
+.diffout{font:400 16px/1.9 var(--serif);background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 16px;white-space:pre-wrap;word-break:break-word}
+.d-del{background:var(--red-soft);color:var(--red);text-decoration:line-through}
+.d-ins{background:var(--blue-soft);color:var(--blue);border-bottom:2px solid var(--blue)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid #E6EAEE;vertical-align:top}
+th{color:var(--muted);font-size:13px;background:#F7F9FA}
+.tbl{overflow-x:auto;position:relative}
+.risk{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.risk.hi{background:var(--red-soft);color:var(--red)} .risk.lo{background:#EEF1F4;color:var(--muted)}
+.hint{font-size:13px;color:var(--muted)}
+.err{color:var(--red);font-size:13px;min-height:1.2em;margin:6px 0 0}
+h2.s{font:700 18px/1.3 var(--sans);margin:0 0 6px}
+p.lede{color:var(--muted);margin:0 0 16px;max-width:72ch}
+
+dialog{border:0;border-radius:8px;padding:0;width:min(760px,calc(100% - 32px));color:var(--ink)}
+dialog::backdrop{background:rgba(17,24,31,.55)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.dh h2{margin:0;font:700 18px/1.3 var(--sans)}
+.db{padding:16px 20px 20px}
+.x{all:unset;cursor:pointer;font-size:22px;padding:0 8px;border-radius:4px}
+.x:focus-visible{outline:3px solid var(--focus)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--chrome);color:#fff;padding:11px 18px;border-radius:6px;max-width:min(560px,calc(100% - 32px));opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+
+@media (max-width:1080px){ .split{grid-template-columns:minmax(0,1fr)} .panel{position:static;max-height:none} .stamp{right:24px} }
+@media (max-width:700px){
+  header.bar{padding:10px 16px} .progress{margin-left:0;width:100%} .progress .track{flex:1}
+  .wrap{padding:14px 16px 40px}
+  .galley{padding:20px 0 24px}
+  .galley-head{padding:0 16px 10px}
+  .row{grid-template-columns:minmax(0,1fr)}
+  .txt{padding:2px 16px;border-right:0;font-size:16px}
+  .row.li .txt{padding-left:28px}
+  .margin{flex-direction:row;flex-wrap:wrap;padding:0 16px 6px}
+  .margin:empty{display:none}
+  .cols{grid-template-columns:1fr}
+  .stamp{top:12px;right:12px}
+}
+@media (prefers-reduced-motion:reduce){ .toast{transition:none} }
+</style>
+</head>
+<body>
+<div class="notice">Prototype for the NE Seva First Innovation Challenge 2026. The document is synthetic test text, not a real notification.</div>
+<header class="bar">
+  <div class="brand"><b>Shuddhi</b><span lang="as">শুদ্ধি</span></div>
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="review" aria-selected="true">Proof review</button>
+    <button role="tab" data-tab="compare" aria-selected="false">Compare copy and proof</button>
+    <button role="tab" data-tab="revise" aria-selected="false">Revise-proof check</button>
+    <button role="tab" data-tab="approve" aria-selected="false">Approval and history</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+<div class="wrap" id="app"></div>
+
+<dialog id="dlg" aria-labelledby="dlgT"><div id="dlgC"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ================= Sample document (synthetic) ================= */
+const SAMPLE_TITLE = 'Notification TAD.45/2026/12, first proof';
+const RAW = [
+ ['h','GOVERNMENT OF ASSAM'],
+ ['h','DEPARTMENT OF TRIBAL AFFAIRS (PLAIN)'],
+ ['h','NOTIFICATION'],
+ ['c','No. TAD.45/2026/12, Dated Dispur, the 19th November, 2026'],
+ ['p','In pursuance of the the decision taken in the review meeting held on 12-11-2026, a District Level Stationery Monitoring Commitee is hereby constituted in each district  with the following members :'],
+ ['li','1. Deputy Commissioner of the district – Chairman'],
+ ['li','2. Additional Deputy Commissioner (Supply) – Member Secretary'],
+ ['li','3. District Treasury Officer – Member'],
+ ['li','5. Representative of the Directorate of Printing and Stationery – Member'],
+ ['p','The Committee shall meet once in every three months and shall ensure that all members attends the meeting. The Deputy commissioner, Kamrup Metro shall submit the first report to the Department by 30th November , 2026.'],
+ ['p','Members shall recieve no additional remuneration for this work. An annual contingency grant of ₹ 50,000  (Rupees fifty thousand) only is sanctioned under Rule 7 (vii). Correspondence may be addressed to the Gauhati office of the Directorate, near Gauhati High Court.'],
+ ['p','In the notification No. TAD.40/2026/3, for “Commitee” read “Committee”.'],
+ ['p','This notification shall come into force with immediate effect.'],
+ ['sig','Sd/- Sample Officer, Secretary to the Government of Assam, Department of Tribal Affairs (Plan), Dispur'],
+ ['h2','অসমীয়া সংস্কৰণ'],
+ ['p','অসম চ{RA}কা{RA}ে প্ৰতিখন জিলাত লেখন সামগ্ৰীৰ যোগান তদাৰক কৰিবলৈ এখন সমিতি গঠন কৰিছে ।'],
+ ['p','জিলা আ{YYA}ুক্ত সমিতিৰ সভাপতি হ’ব|'],
+ ['p','সমিতিখনে প্ৰতি তিনি মাহত এবাৰ বৈঠকত মিলিত হ’ব আৰু ২০২৬ চনৰ 30 নৱেম্বৰৰ ভিতৰত প্ৰথম প্ৰতিবেদন দাখিল কৰিব।'],
+ ['p','এই এই জাননী তৎক্ষণাৎ বলবৎ হ’ব।'],
+ ['h2','বাংলা সংস্করণ'],
+ ['p','এই বিজ্ঞপ্তি অবিলম্বে কার্যকর হবে এবং সকল জেলায় পাঠানো হবে।'],
+ ['h2','हिन्दी संस्करण'],
+ ['p','यह अधिसूचना तत्काल प्रभाव से लागू होगी |'],
+ ['p','यह काम धीरे धीरे आगे बढ़ेगा।']
+];
+// Normalise everything, then inject the deliberate errors with exact code points.
+const SAMPLE = RAW.map(([s,t]) => ({s, t: t.normalize('NFC').replace(/\{RA\}/g,'র').replace(/\{YYA\}/g,'য়')}));
+// Pre-computed AI (blue pencil) suggestions for the sample only.
+const SAMPLE_AI = [
+  {p:9, find:'once in every three months', to:'once every three months', why:'Style: “once every three months” is the standard phrasing in notifications.'},
+  {p:9, find:'attends', to:'attend', why:'Grammar: the plural subject “all members” takes “attend”.'},
+  // A deliberately unsafe AI suggestion: it would change an amount. The guard must block it.
+  {p:10, find:'₹ 50,000', to:'₹ 5,000', why:'(Unsafe AI rewrite, kept in the sample to show the guard working.)'}
+];
+const COPY_SAMPLE = 'The Committee shall be provided an annual contingency grant of ₹ 50,000 (Rupees fifty thousand) only, to be drawn from the District Stationery Fund.\nসমিতিখনে প্ৰতি তিনি মাহত এবাৰ বৈঠকত মিলিত হ’ব।'.normalize('NFC');
+const PROOF_SAMPLE = 'The Committee shall be provided an annual grant of ₹ 5,000 (Rupees fifty thousand) only, to be drawn from the District Stationery Fund Fund.\nসমিতিখনে প্ৰতি দুই মাহত এবাৰ বৈঠকত মিলিত হ’ব।'.normalize('NFC');
+
+/* ================= Rule engine (red pencil + queries) ================= */
+const LANG_NAME = {en:'English', as:'Assamese', bn:'Bengali', hi:'Hindi', uncertain:'Language uncertain'};
+/* Language is declared per document and CONFIRMED per paragraph (same logic as shuddhi_core/langid.py).
+   র in place of ৰ is the commonest Assamese error, so the missing letter cannot be the only evidence:
+   we also look for function words that differ between Assamese and Bengali. If unsure, abstain. */
+const AS_WORDS = new Set(['আৰু','হৈছে','তেওঁ','তেওঁলোক','বাবে','লৈ','কাৰণে','অনুসৰি','নহয়','আছিল',"হ'ব",'হ’ব','কৰিছে','এখন','সকলো','জনোৱা','ক্ষেত্ৰত','সন্দৰ্ভত','মাজত','সৈতে','যোৱা','কৰিবলৈ','হোৱা'].map(w=>w.normalize('NFC')));
+const BN_WORDS = new Set(['এবং','হবে','থেকে','জন্য','সঙ্গে','হয়েছে','কৰেছে','তাঁৰ','তাদেৰ','দ্বাৰা','কোনো','এখানে','যাবে','পাৰে','দেওয়া','হলো','হল','সকল','পাঠানো'].map(w=>w.normalize('NFC')));
+function detectLang(t, declared){
+  const beng = (t.match(/[ঀ-৿]/g)||[]).length, deva = (t.match(/[ऀ-ॿ]/g)||[]).length, latn = (t.match(/[A-Za-z]/g)||[]).length;
+  if (beng >= deva && beng >= latn && beng > 0){
+    const words = (t.match(/[ঀ-৿'’]+/g)||[]).map(w=>w.normalize('NFC').replace(/র/g,'ৰ'));
+    const as = words.filter(w=>AS_WORDS.has(w)).length, bn = words.filter(w=>BN_WORDS.has(w)).length, letters = /[ৰৱ]/.test(t);
+    if (declared==='bn') return letters ? 'uncertain' : 'bn';
+    if (bn && !(as||letters)) return 'bn';
+    if ((as||letters) && !bn) return 'as';
+    return 'uncertain';
+  }
+  if (deva >= latn && deva > 0) return 'hi';
+  return latn ? 'en' : 'uncertain';
+}
+
+/* ---------- Protected tokens and zones (same rules as shuddhi_core/guard.py and zones.py) ---------- */
+const DIG='0-9০-৯०-९';
+const PROTECTED = [
+  ['amount', new RegExp(`(?:₹|Rs\\.?|INR)\\s*[${DIG}][${DIG},]*(?:\\.[${DIG}]+)?(?:\\s*/-)?`,'gi')],
+  ['date', new RegExp(`(?<![${DIG}])[${DIG}]{1,4}[-/.][${DIG}]{1,2}[-/.][${DIG}]{2,4}(?![${DIG}])`,'g')],
+  ['date', /\b\d{1,2}(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?,?\s+\d{4}\b/g],
+  ['reference', new RegExp(`\\b(?:No|Nos|Memo|Letter|File|ECF)\\s*\\.?\\s*:?\\s*[A-Z][A-Za-z().&-]*\\s*\\.?\\s*[${DIG}][\\w./()-]*`,'gi')],
+  ['section', new RegExp(`\\b(?:Section|Sec\\.|Rule|Rules|Clause|Article|Para|Paragraph|Schedule|Chapter)\\s*[${DIG}]+[A-Za-z]?(?:\\s*\\([0-9a-zivx]+\\))*`,'gi')],
+  ['number', new RegExp(`[${DIG}](?:[${DIG},.]*[${DIG}])?`,'g')]
+];
+const ZONES = [
+  ['quotation', /["“‘'][^"”’'\n]{1,200}["”’']/g],
+  ['corrigendum', /\b[Ff]or\s+["“‘']?[^\n]{1,80}?["”’']?\s+read\s+["“‘']?[^\n]{1,80}?["”’']?(?=[.;,]|\s*$)/g],
+  ['citation', /\b(?:[A-Z][\w()&'-]*\s+){1,9}(?:Act|Rules|Regulations|Order|Ordinance|Code)(?:,?\s*\d{4})?/g],
+  ['institution', /\b(?:[A-Z][\w&'-]*\s+){0,6}(?:High Court|Supreme Court|University|Municipal Corporation|Corporation|Commission|Board|Council|Tribunal|Authority)\b/g]
+];
+const spansOf = (t, list) => { const out=[]; for (const [k,re] of list) for (const m of t.matchAll(re)) if (m[0].length) out.push({s:m.index,e:m.index+m[0].length,k}); return out; };
+const digitsOf = s => (s.replace(/[০-৯]/g,d=>'০১২৩৪৫৬৭৮৯'.indexOf(d)).replace(/[०-९]/g,d=>'०१२३४५६७८९'.indexOf(d)).match(/[0-9]+/g)||[]).join('|');
+/* Every mark passes this guard. A mark touching a protected token or zone becomes a query (never applied);
+   a mark whose replacement would change a number is blocked. */
+function guard(t, f){
+  const toks = spansOf(t, PROTECTED), zones = spansOf(t, ZONES);
+  const hitT = toks.find(p=>f.start<p.e && p.s<f.end), hitZ = zones.find(z=>f.start<z.e && z.s<f.end);
+  if (f.to!==null && f.to!==undefined && digitsOf(t.slice(f.start,f.end)) !== digitsOf(f.to)) return {...f, blocked:true};
+  if (hitT || hitZ) return {...f, kind:'q', bulk:false, locked:true, to:null,
+    why: f.why + ` Locked: this touches a protected ${hitT?hitT.k:hitZ.k}, so Shuddhi can only ask, never change it.`};
+  return f;
+}
+const SPELL = {commitee:'committee',comittee:'committee',committe:'committee',recieve:'receive',recieved:'received',reciept:'receipt',seperate:'separate',occured:'occurred',occurence:'occurrence',accomodation:'accommodation',goverment:'government',alloted:'allotted',upto:'up to',inspite:'in spite',untill:'until',sucessful:'successful',neccessary:'necessary',begining:'beginning',priviledge:'privilege',maintainance:'maintenance',recomend:'recommend',thier:'their',wich:'which',adress:'address',sanctionned:'sanctioned'};
+const TERMS = [
+  {re:/\bKamrup Metro\b/g, to:'Kamrup (Metro)', why:'Term bank: the official district name is “Kamrup (Metro)”.'},
+  {re:/\bGauhati\b/g, to:'Guwahati', why:'Term bank: use the city name “Guwahati”. “Gauhati High Court” and “Gauhati University” are official names and are left unchanged.'}
+];
+const DESIGNATIONS = ['Additional Deputy Commissioner','Deputy Commissioner','District Treasury Officer','Member Secretary','Chief Secretary','Principal Secretary'];
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const ord = d => d + ((d%100>=11 && d%100<=13) ? 'th' : ({1:'st',2:'nd',3:'rd'}[d%10] || 'th'));
+const BN_DIG = '০১২৩৪৫৬৭৮৯', DV_DIG = '०१२३४५६७८९';
+
+// Each rule returns findings: {start, end, to, why}. Order = priority when spans overlap.
+const RULES = [
+  {id:'DANDA', name:'Danda', langs:['as','bn','hi'], run(t){ const out=[]; for (const m of t.matchAll(/([ঀ-৿ऀ-ॿ])(\s*)\|/g)){ const s=m.index+m[1].length; out.push({start:s,end:s+m[2].length+1,to:'।',why:'A pipe “|” was typed instead of the danda “।”.'}); } return out; }},
+  {id:'AS-RA', name:'Assamese ৰ', langs:['as'], run(t){ const out=[]; for (const m of t.matchAll(/[ঀ-৿]*র[ঀ-৿]*/g)) out.push({start:m.index,end:m.index+m[0].length,to:m[0].replace(/র/g,'ৰ'),why:'Bengali “র” was typed in Assamese text. Assamese uses “ৰ”. The letters look alike but are different characters, so search and spell-check fail.'}); return out; }},
+  {id:'NUKTA', name:'Hidden encoding', langs:['as','bn'], run(t){ const map={'ড়':'ড়','ঢ়':'ঢ়','য়':'য়'}; const out=[]; for (const m of t.matchAll(/[ড়ঢ়য়]/g)) out.push({start:m.index,end:m.index+1,to:map[m[0]],invisible:true,why:`“${m[0]}” is stored in a non-standard form. It looks identical, but search and indexing treat it as a different letter. Fixing it changes nothing on paper.`}); return out; }},
+  {id:'DIGITS', name:'Mixed digits', langs:['as','bn','hi'], run(t,lang){ const dig = lang==='hi'?DV_DIG:BN_DIG; if (![...dig].some(d=>t.includes(d))) return []; const out=[]; const m = t.match(/[0-9]+/); if (m) out.push({start:m.index,end:m.index+m[0].length,to:null,why:'Latin digits are mixed with '+(lang==='hi'?'Devanagari':'Assamese')+' digits. Confirm the intended style; Shuddhi never rewrites a number.'}); return out; }},
+  {id:'SPACE-PUNCT', name:'Space before punctuation', langs:['en','as','bn','hi'], run(t){ const out=[]; for (const m of t.matchAll(/(\S)( +)([,;:!?।]|\.(?=\s|$))/g)){ const s=m.index+1; out.push({start:s,end:s+m[2].length,to:'',why:`Remove the space before “${m[3]}”.`}); } return out; }},
+  {id:'DOUBLE-SPACE', name:'Extra space', langs:['en','as','bn','hi'], run(t){ const out=[]; for (const m of t.matchAll(/(\S)( {2,})(?=\S)/g)){ const s=m.index+1; out.push({start:s,end:s+m[2].length,to:' ',why:'Two or more spaces between words.'}); } return out; }},
+  {id:'REPEAT', name:'Repeated word', langs:['en','as','bn','hi'], run(t,lang){ const out=[]; for (const m of t.matchAll(/(?<![\p{L}\p{M}])([\p{L}\p{M}]+)(\s+)(\1)(?![\p{L}\p{M}])/giu)){ if (lang==='en'){ const s=m.index+m[1].length; out.push({start:s,end:s+m[2].length+m[3].length,to:'',why:`“${m[1]}” appears twice in a row.`}); } else out.push({start:m.index,end:m.index+m[0].length,to:null,why:`“${m[1]}” appears twice. Doubled words are normal in Assamese, Bengali and Hindi (লাহে লাহে, धीरे धीरे), so Shuddhi only asks.`}); } return out; }},
+  {id:'SPELL', name:'Spelling', langs:['en'], run(t){ const out=[]; for (const m of t.matchAll(/\b[A-Za-z]+\b/g)){ const fix=SPELL[m[0].toLowerCase()]; if (!fix) continue; const to = m[0][0]===m[0][0].toUpperCase() ? fix[0].toUpperCase()+fix.slice(1) : fix; out.push({start:m.index,end:m.index+m[0].length,to,why:`Spelling: “${to}”.`}); } return out; }},
+  {id:'TERM', name:'Official name', langs:['en'], run(t){ const out=[]; for (const r of TERMS) for (const m of t.matchAll(r.re)) out.push({start:m.index,end:m.index+m[0].length,to:r.to,why:r.why}); return out; }},
+  {id:'CASE', name:'Designation', langs:['en'], run(t){ const out=[]; for (const d of DESIGNATIONS) for (const m of t.matchAll(new RegExp('\\b'+d+'\\b','gi'))) if (m[0]!==d) out.push({start:m.index,end:m.index+m[0].length,to:d,why:`Designations are capitalised consistently: “${d}”.`}); return out; }},
+  {id:'DATE', name:'Date style', langs:['en'], run(t){ const out=[]; for (const m of t.matchAll(/\b(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})\b/g)){ const d=+m[1], mo=+m[2]; if (mo<1||mo>12||d<1||d>31) continue; out.push({start:m.index,end:m.index+m[0].length,to:null,why:`Numeric date. House style would be “${ord(d)} ${MONTHS[mo-1]}, ${m[3]}”, but day-month order cannot be assumed, so Shuddhi only asks.`}); } return out; }}
+];
+const BULK_SAFE = new Set(['DANDA','NUKTA','SPACE-PUNCT','DOUBLE-SPACE']);   // the only rules that may be accepted in bulk
+const RULE_NAME = Object.fromEntries(RULES.map(r=>[r.id,r.name])); RULE_NAME.NUMBERING='Numbering'; RULE_NAME.AI='AI suggestion'; RULE_NAME.CONSISTENCY='Consistency';
+
+let blocked = [];
+function check(paras, bengLang, ai){
+  const marks = []; blocked = [];
+  paras.forEach((p,pi) => {
+    p.lang = detectLang(p.t, bengLang);
+    let f = [];
+    RULES.forEach((r,ri) => { if (r.langs.includes(p.lang)) r.run(p.t,p.lang).forEach(x => f.push({...x, rule:r.id, kind: x.to===null?'q':'r', bulk: BULK_SAFE.has(r.id) && x.to!==null, pr:ri})); });
+    (ai||[]).filter(a=>a.p===pi).forEach(a => { const s = p.t.indexOf(a.find); if (s>=0) f.push({start:s,end:s+a.find.length,to:a.to,why:a.why,rule:'AI',kind:'b',bulk:false,pr:50}); });
+    f = f.map(x=>guard(p.t,x));
+    f.filter(x=>x.blocked).forEach(x=>blocked.push({...x, p:pi, from:p.t.slice(x.start,x.end)}));
+    f = f.filter(x=>!x.blocked);
+    f.sort((a,b)=>a.start-b.start || a.pr-b.pr);
+    let last = -1; f.forEach(x => { if (x.start >= last){ marks.push({...x, p:pi}); last = x.end; } });
+  });
+  // Consistency within the document: the same name spelled two ways (both may be real words, e.g. PLAIN / Plan)
+  const occ = {};
+  paras.forEach((p,pi)=>{ for (const m of p.t.matchAll(/\(([A-Za-z][A-Za-z .&-]{2,30})\)/g)) (occ[m[1].toLowerCase()] ||= []).push({p:pi,s:m.index+1,e:m.index+1+m[1].length,g:m[1]}); });
+  const lev = (a,b)=>{ const d=Array.from({length:a.length+1},(_,i)=>[i]); for(let j=1;j<=b.length;j++) d[0][j]=j; for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++) d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1)); return d[a.length][b.length]; };
+  const keys = Object.keys(occ);
+  keys.forEach((a,i)=>keys.slice(i+1).forEach(b=>{ const d=lev(a,b);
+    if (Math.min(a.length,b.length)>=4 && d>0 && d<=(Math.min(a.length,b.length)<7?1:2) && !a.endsWith(b) && !b.endsWith(a))
+      occ[a].concat(occ[b]).forEach(o=>{ if (!marks.some(m=>m.p===o.p && m.start<o.e && o.s<m.end)) marks.push({p:o.p,start:o.s,end:o.e,to:null,rule:'CONSISTENCY',kind:'q',bulk:false,locked:true,why:`“${occ[a][0].g}” and “${occ[b][0].g}” both appear in this document. Both are real words, so a spell-checker cannot see this. Which one is right?`}); });
+  }));
+  // Numbering query across consecutive list paragraphs
+  let prev = null;
+  paras.forEach((p,pi) => {
+    const m = p.t.match(/^(\d+)[.)]\s/);
+    if (!m){ prev = null; return; }
+    const n = +m[1];
+    if (prev !== null && n !== prev+1) marks.push({p:pi,start:0,end:m[1].length,to:null,rule:'NUMBERING',kind:'q',why:`Numbering jumps from ${prev} to ${n}. Check whether an item is missing or the number is wrong.`});
+    prev = n;
+  });
+  marks.sort((a,b)=>a.p-b.p || a.start-b.start);
+  marks.forEach((m,i)=>{ m.id=i+1; m.status='open'; m.from=paras[m.p].t.slice(m.start,m.end); });
+  return marks;
+}
+
+/* ================= State ================= */
+const KEY='shuddhi-proto-v2';
+let D, ui = {tab:'review', filter:'open', focus:null};
+function newDoc(title, paras, bengLang, ai, source){ const ps = paras.map(p=>({...p})); return {title, paras:ps, bengLang, source, marks:check(ps, bengLang, ai), approved:null, history:(D&&D.history)||[]}; }
+function load(){ try{ const raw=localStorage.getItem(KEY); if(raw){ D=JSON.parse(raw); return; } }catch(e){} D = newDoc(SAMPLE_TITLE, SAMPLE, 'as', SAMPLE_AI, 'sample'); }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(D)); }catch(e){} }
+
+/* ================= Helpers ================= */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const vis = s=> s==='' ? '' : (/^\s+$/.test(s) ? `<span class="ws">${s.replace(/ /g,'␣')}</span>` : esc(s).replace(/^( +)/,m=>`<span class="ws">${'␣'.repeat(m.length)}</span>`));
+const tstr = ts=>new Date(ts).toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+const counts = ()=>{ const c={total:D.marks.length,open:0,r:0,b:0,q:0,accepted:0,rejected:0}; D.marks.forEach(m=>{ if(m.status==='open'){c.open++; c[m.kind]++;} else c[m.status]++; }); return c; };
+/* SHA-256 of the approved text (plain JavaScript, so it works in every browser and context). */
+function sha256hex(str){
+  const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  const H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const b=Array.from(new TextEncoder().encode(str)), l=b.length*8; b.push(0x80); while(b.length%64!==56) b.push(0);
+  for (let i=7;i>=0;i--) b.push(i>3?0:(l>>>(i*8))&255);
+  const r=(x,n)=>(x>>>n)|(x<<(32-n)), w=new Array(64);
+  for (let o=0;o<b.length;o+=64){
+    for (let i=0;i<16;i++) w[i]=(b[o+4*i]<<24)|(b[o+4*i+1]<<16)|(b[o+4*i+2]<<8)|b[o+4*i+3];
+    for (let i=16;i<64;i++){ const s0=r(w[i-15],7)^r(w[i-15],18)^(w[i-15]>>>3), s1=r(w[i-2],17)^r(w[i-2],19)^(w[i-2]>>>10); w[i]=(w[i-16]+s0+w[i-7]+s1)|0; }
+    let [a,bb,c,d,e,f,g,h]=H;
+    for (let i=0;i<64;i++){ const t1=(h+(r(e,6)^r(e,11)^r(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0, t2=((r(a,2)^r(a,13)^r(a,22))+((a&bb)^(a&c)^(bb&c)))|0; h=g; g=f; f=e; e=(d+t1)|0; d=c; c=bb; bb=a; a=(t1+t2)|0; }
+    [a,bb,c,d,e,f,g,h].forEach((v,i)=>H[i]=(H[i]+v)|0);
+  }
+  return H.map(v=>(v>>>0).toString(16).padStart(8,'0')).join('');
+}
+async function sha256(s){ return 'SHA-256 '+sha256hex(s).slice(0,32).toUpperCase()+'…'; }
+function paraText(pi){ const p=D.paras[pi]; let t=p.t; D.marks.filter(m=>m.p===pi && m.status==='accepted' && m.to!==null).sort((a,b)=>b.start-a.start).forEach(m=>{ t=t.slice(0,m.start)+m.to+t.slice(m.end); }); return t; }
+const correctedText = ()=>D.paras.map((_,i)=>paraText(i)).join('\n');
+let tt; function toast(msg){ const el=$('#toast'); el.textContent=msg; el.className='toast show'; clearTimeout(tt); tt=setTimeout(()=>el.className='toast',3800); }
+function download(name, text, type){ const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+text],{type})); a.download=name; document.body.appendChild(a); a.click(); a.remove(); }
+const kindName = {r:'Red pencil',b:'Blue pencil',q:'Query'};
+
+/* ================= Render ================= */
+function render(){
+  document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-selected', String(b.dataset.tab===ui.tab)));
+  const c = counts(), done = c.total-c.open;
+  $('#progress').innerHTML = `<span>${done} of ${c.total} marks resolved</span><span class="track" aria-hidden="true"><span class="fill" style="display:block;width:${c.total?done/c.total*100:100}%"></span></span>`;
+  $('#app').innerHTML = ui.tab==='review' ? vReview() : ui.tab==='compare' ? vCompare() : ui.tab==='revise' ? vRevise() : vApprove();
+  if (ui.tab==='compare') runCompare(false);
+  if (ui.tab==='revise') runRevise(false);
+  save();
+}
+function docbar(){
+  const langs = [...new Set(D.paras.map(p=>p.lang))];
+  return `<div class="docbar"><div><h1>${esc(D.title)}</h1><div class="meta">${D.source==='sample'?'Synthetic sample with deliberate errors':'Your pasted text'}. Language is confirmed paragraph by paragraph; where Assamese and Bengali cannot be told apart, Shuddhi does not run the Assamese-only rules. 🔒 marks touch a number, date, reference, quotation, citation or name: Shuddhi can only ask about them.</div></div>
+    <div class="langs" aria-label="Languages found">${langs.map(l=>`<span class="lang">${LANG_NAME[l]}</span>`).join('')}</div>
+    <div class="tools"><button class="btn ghost" data-act="paste">Check your own text</button>${D.source!=='sample'?'<button class="btn ghost" data-act="sample">Load the sample again</button>':''}<button class="btn ghost" data-act="dl-text">Download corrected text</button><button class="btn ghost" data-act="dl-log">Download change log</button></div></div>`;
+}
+function markInline(m){
+  const f = ui.focus===m.id ? ' focus':'';
+  if (m.status==='accepted') return m.to===null ? esc(m.from) : `<span class="acc" title="Mark ${m.id} accepted">${esc(m.to)}</span>`;
+  if (m.status==='rejected') return esc(m.from);
+  if (m.kind==='q') return `<span class="mk q${f}" data-mark="${m.id}"><span class="qtext">${esc(m.from)}</span><sup>Qy ${m.id}</sup></span>`;
+  const inv = m.invisible ? ' title="Looks the same, stored differently"' : '';
+  return `<span class="mk ${m.kind}${f}" data-mark="${m.id}"${inv}>${m.from?`<del>${m.invisible?esc(m.from)+'<span class="ws">(old form)</span>':vis(m.from)}</del>`:''}${m.to?`<ins>${vis(m.to)}</ins>`:''}<sup>${m.id}</sup></span>`;
+}
+function vReview(){
+  const c = counts();
+  const rows = D.paras.map((p,pi)=>{
+    const ms = D.marks.filter(m=>m.p===pi).sort((a,b)=>a.start-b.start);
+    let html='', pos=0; ms.forEach(m=>{ html += esc(p.t.slice(pos,m.start)) + markInline(m); pos = m.end; }); html += esc(p.t.slice(pos));
+    const mm = ms.filter(m=>m.status==='open').map(m=>`<button class="mm ${m.kind}" data-mark="${m.id}" aria-label="Mark ${m.id}: ${esc(RULE_NAME[m.rule])}"><span class="n">${m.id}</span>${m.kind==='q'?'Qy':(m.to===''?'delete':(m.invisible?'encoding':esc(m.to.trim()||'␣')))}</button>`).join('');
+    return `<div class="row ${p.s||'p'}"><div class="txt" lang="${p.lang==='en'?'en':p.lang}">${html||'&nbsp;'}</div><div class="margin">${mm}</div></div>`;
+  }).join('');
+  const list = D.marks.filter(m => ui.filter==='all' ? true : ui.filter==='open' ? m.status==='open' : ui.filter==='done' ? m.status!=='open' : (m.status==='open' && m.kind===ui.filter));
+  const fbtn = (k,l,n)=>`<button data-filter="${k}" aria-pressed="${ui.filter===k}">${l}${n!==undefined?` (${n})`:''}</button>`;
+  return `${docbar()}
+  <div class="split">
+    <article class="galley" aria-label="Galley proof">
+      <div class="galley-head"><span>Galley proof, checked ${tstr(Date.now())}</span><span>${c.total} marks: red pencil = rule, blue pencil = AI, Qy = query</span></div>
+      ${D.approved?`<div class="stamp">APPROVED FOR PRINT<small>${esc(D.approved.by)}, ${tstr(D.approved.ts)}</small></div>`:''}
+      ${rows}
+    </article>
+    <aside class="panel" aria-label="Marks">
+      <div class="panel-head">
+        <h2>Marks to review</h2>
+        <div class="filters">${fbtn('open','Open',c.open)}${fbtn('r','Red pencil',c.r)}${fbtn('b','Blue pencil',c.b)}${fbtn('q','Queries',c.q)}${fbtn('done','Resolved',c.total-c.open)}${fbtn('all','All')}</div>
+        ${!D.approved ? bulkButtons() : ''}
+        ${blocked.length ? `<p class="hint" style="margin:8px 0 0"><b>Guard:</b> ${blocked.length} unsafe suggestion${blocked.length>1?'s were':' was'} blocked because ${blocked.length>1?'they':'it'} would change a number (${blocked.map(b=>`“${esc(b.from)}” → “${esc(b.to)}”`).join(', ')}).</p>`:''}
+        ${D.approved?'<p class="hint" style="margin:8px 0 0">Approved for print. Reopen it from “Approval and history” to make changes.</p>':''}
+      </div>
+      <div class="list" id="list">${list.map(card).join('') || `<p class="empty">${c.open?'No marks in this view.':'Every mark is resolved. Go to “Approval and history” to approve the document for print.'}</p>`}</div>
+    </aside>
+  </div>`;
+}
+function bulkButtons(){
+  const open = D.marks.filter(m=>m.status==='open' && m.bulk);
+  const by = {}; open.forEach(m=>(by[m.rule] ||= []).push(m));
+  const btns = Object.entries(by).map(([r,ms])=>`<button class="btn red sm" data-act="bulk" data-id="${r}">Accept all ${ms.length} “${esc(RULE_NAME[r])}” fixes</button>`).join(' ');
+  return btns ? `<div class="bulk">${btns}<span class="hint">Bulk accept exists only for spacing, danda and encoding fixes. Spelling, names, AI suggestions and anything touching a number are decided one at a time.</span></div>` : '';
+}
+function card(m){
+  const lang = LANG_NAME[D.paras[m.p].lang];
+  const chg = m.kind==='q' ? `<span>${esc(m.from)}</span>` : (m.invisible ? `<span>${esc(m.from)}</span> <span class="hint">(invisible encoding fix)</span>` : `${m.from?`<del>${vis(m.from)}</del> `:''}${m.to?`→ <ins>${vis(m.to)}</ins>`:'→ <span class="hint">delete</span>'}`);
+  const acts = D.approved ? '' : m.status==='open'
+    ? (m.kind==='q' ? `<button class="btn sm" data-act="accept" data-id="${m.id}">Mark as checked</button><button class="btn ghost sm" data-act="reject" data-id="${m.id}">Dismiss</button>`
+                     : `<button class="btn sm" data-act="accept" data-id="${m.id}">Accept</button><button class="btn ghost sm" data-act="reject" data-id="${m.id}">Reject</button>`)
+    : `<span class="state ${m.status}">${m.status==='accepted'?(m.kind==='q'?'Checked':'Accepted'):'Rejected'}</span><button class="btn ghost sm" data-act="undo" data-id="${m.id}">Undo</button>`;
+  return `<div class="card ${m.kind}${ui.focus===m.id?' focus':''}" id="card-${m.id}">
+    <div class="top"><span class="n ${m.status==='open'?m.kind:'ok'}">${m.id}</span><b>${esc(RULE_NAME[m.rule])}</b><span>${m.locked?'🔒 Locked query':kindName[m.kind]}, ${lang}</span></div>
+    <div class="chg" lang="${D.paras[m.p].lang}">${chg}</div><p class="why">${esc(m.why)}</p><div class="acts">${acts}</div></div>`;
+}
+
+/* ---------- Compare ---------- */
+let cmp = {copy:COPY_SAMPLE, proof:PROOF_SAMPLE};
+function vCompare(){
+  return `<h2 class="s">Compare the department’s copy with the typeset proof</h2>
+  <p class="lede">The copy holder’s job, done automatically: every word that was dropped, added or changed during typesetting is listed. Changed numbers, amounts and number words are flagged as high risk.</p>
+  <div class="cols">
+    <label class="f">Original copy from the department<textarea id="c-copy">${esc(cmp.copy)}</textarea></label>
+    <label class="f">Typeset proof<textarea id="c-proof">${esc(cmp.proof)}</textarea></label>
+  </div>
+  <div style="margin:12px 0 18px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="compare">Compare</button><button class="btn ghost" data-act="cmp-sample">Restore sample</button></div>
+  <div id="c-out"></div>`;
+}
+const NUMWORDS = new Set(['one','two','three','four','five','six','seven','eight','nine','ten','hundred','thousand','lakh','lakhs','crore','crores','এক','দুই','চাৰি','পাঁচ','ছয়','সাত','আঠ','ন','দহ','এশ','হাজাৰ','লাখ','কোটি','एक','दो','तीन','चार','पांच','पाँच','छह','सात','आठ','नौ','दस','सौ','हज़ार','हजार','लाख','करोड़'].map(w=>w.normalize('NFC')));
+const isNumTok = w => /[0-9০-৯०-९]/.test(w) || NUMWORDS.has(w.replace(/[^\p{L}\p{M}]/gu,'').toLowerCase());
+function diffTokens(a,b){
+  const n=a.length, m=b.length, dp=Array.from({length:n+1},()=>new Uint16Array(m+1));
+  for (let i=n-1;i>=0;i--) for (let j=m-1;j>=0;j--) dp[i][j] = a[i]===b[j] ? dp[i+1][j+1]+1 : Math.max(dp[i+1][j],dp[i][j+1]);
+  const ops=[]; let i=0,j=0;
+  while (i<n && j<m){ if (a[i]===b[j]){ ops.push({op:'eq',t:b[j]}); i++; j++; } else if (dp[i+1][j]>=dp[i][j+1]) ops.push({op:'del',t:a[i++]}); else ops.push({op:'ins',t:b[j++]}); }
+  while (i<n) ops.push({op:'del',t:a[i++]}); while (j<m) ops.push({op:'ins',t:b[j++]});
+  return ops;
+}
+function runCompare(fromBtn){
+  if (fromBtn){ cmp.copy=$('#c-copy').value; cmp.proof=$('#c-proof').value; }
+  const tok = s=>s.normalize('NFC').replace(/\r?\n/g,' \n ').split(/[ \t]+/).filter(Boolean);
+  const ops = diffTokens(tok(cmp.copy), tok(cmp.proof));
+  const groups=[]; let g=null;
+  ops.forEach(o=>{ if (o.op==='eq' || o.t==='\n'){ g=null; return; } if(!g){ g={copy:[],proof:[]}; groups.push(g);} (o.op==='del'?g.copy:g.proof).push(o.t); });
+  const shown = ops.filter(o=>!(o.t==='\n' && o.op==='del')).map(o=> o.t==='\n' ? '\n' : o.op==='eq'?esc(o.t): o.op==='del'?`<span class="d-del">${esc(o.t)}</span>`:`<span class="d-ins">${esc(o.t)}</span>`).join(' ').replace(/ ?\n ?/g,'\n');
+  const rows = groups.map((g,i)=>{ const hi=[...g.copy,...g.proof].some(isNumTok); const type = !g.proof.length?'Dropped in proof':!g.copy.length?'Added in proof':'Changed';
+    return `<tr><td>${i+1}</td><td>${type}</td><td>${esc(g.copy.join(' '))||'<span class="hint">nothing</span>'}</td><td>${esc(g.proof.join(' '))||'<span class="hint">nothing</span>'}</td><td><span class="risk ${hi?'hi':'lo'}">${hi?'High: number changed':'Check'}</span></td></tr>`; }).join('');
+  const out = $('#c-out'); if (!out) return;
+  out.innerHTML = groups.length ? `<div class="sheet" style="margin-bottom:16px"><h2 class="s">${groups.length} difference${groups.length>1?'s':''} found</h2><div class="tbl"><table><thead><tr><th>#</th><th>Type</th><th>Copy says</th><th>Proof says</th><th>Risk</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+    <h2 class="s">Proof with differences marked</h2><p class="hint">Red strike-through: in the copy but missing from the proof. Blue underline: in the proof but not in the copy.</p><div class="diffout">${shown}</div>`
+    : `<div class="sheet"><h2 class="s">No differences</h2><p class="hint" style="margin:0">The proof matches the copy word for word.</p></div>`;
+  if (fromBtn) toast(groups.length ? `${groups.length} difference${groups.length>1?'s':''} found.` : 'The proof matches the copy.');
+}
+
+/* ---------- Revise-proof check ---------- */
+const REV_SAMPLE = {
+  r1: 'The Governor of Assam is pleased to constitute a District Level Monitoring Commitee for the district of Kamrup Metro. The the Committee shall meet once in every quarter and shall recieve no remuneration. A sum of Rs. 5,00,000 is sanctioned for the year 2026-27.',
+  acc: 'Monitoring Commitee => Monitoring Committee\nKamrup Metro => Kamrup (Metro)\nThe the Committee => The Committee\nshall recieve => shall receive',
+  r2: 'The Governor of Assam is pleased to constitute a District Level Monitoring Committee for the district of Kamrup Metro. The Committee may meet once in every quarter and shall receive no remuneration. A sum of Rs. 50,000 is sanctioned for the year 2026-27.'
+};
+let rev = {...REV_SAMPLE};
+function vRevise(){
+  return `<h2 class="s">Check the revise proof against the last round</h2>
+  <p class="lede">Today the reader re-reads the whole page at every revise. Shuddhi applies the corrections accepted on the last proof and compares the result with the new proof: every correction is shown as <b>made</b> or <b>missed</b>, and anything that changed without being asked for is listed first, numbers at the top.</p>
+  <div class="cols">
+    <label class="f">Proof, round 1<textarea id="r-1">${esc(rev.r1)}</textarea></label>
+    <label class="f">Proof, round 2 (the revise)<textarea id="r-2">${esc(rev.r2)}</textarea></label>
+  </div>
+  <label class="f" style="margin-top:12px">Corrections accepted on round 1 (one per line: wrong => right)<textarea id="r-acc" style="min-height:90px">${esc(rev.acc)}</textarea></label>
+  <div style="margin:12px 0 18px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="revise">Check the revise</button><button class="btn ghost" data-act="rev-sample">Restore sample</button></div>
+  <div id="r-out"></div>`;
+}
+function runRevise(fromBtn){
+  if (fromBtn){ rev = {r1:$('#r-1').value, r2:$('#r-2').value, acc:$('#r-acc').value}; }
+  const acc = rev.acc.split(/\r?\n/).map(l=>l.split('=>').map(s=>s.trim())).filter(a=>a.length===2 && a[0]);
+  let expected = rev.r1; acc.forEach(([f,t])=>{ expected = expected.replace(f,t); });
+  const res = [];
+  acc.forEach(([f,t])=>{ const made = rev.r2.includes(t) && (!rev.r2.includes(f) || t.includes(f)); res.push({type: made?'made':'missed', detail: made?`“${f}” → “${t}”`:`“${f}” should read “${t}”`, hi:/[0-9০-৯०-९]/.test(f+t), f, t}); });
+  const missed = res.filter(r=>r.type==='missed');
+  const tok = s=>s.normalize('NFC').split(/\s+/).filter(Boolean);
+  const ops = diffTokens(tok(expected), tok(rev.r2)); const groups=[]; let g=null;
+  ops.forEach(o=>{ if (o.op==='eq'){ g=null; return; } if(!g){ g={exp:[],got:[]}; groups.push(g);} (o.op==='del'?g.exp:g.got).push(o.t); });
+  groups.forEach(g=>{ const e=g.exp.join(' ').replace(/[.,;:]+$/,''), t=g.got.join(' ').replace(/[.,;:]+$/,''); if (missed.some(m=>(e && m.t.includes(e)) || (t && m.f.includes(t)))) return;
+    res.push({type:'unasked', detail:`expected “${e||'nothing'}” but the revise has “${t||'nothing'}”`, hi:[...g.exp,...g.got].some(isNumTok)}); });
+  const order = {unasked:0, missed:1, made:2};
+  res.sort((a,b)=>(b.hi-a.hi) || order[a.type]-order[b.type]);
+  const n = k=>res.filter(r=>r.type===k).length;
+  const lab = {made:'Made', missed:'Missed', unasked:'Not asked for'};
+  const out = $('#r-out'); if (!out) return;
+  out.innerHTML = `<div class="sheet"><h2 class="s">${n('made')} made · ${n('missed')} missed · ${n('unasked')} not asked for</h2><div class="tbl"><table><thead><tr><th>#</th><th>Result</th><th>Detail</th><th>Risk</th></tr></thead><tbody>${res.map((r,i)=>`<tr><td>${i+1}</td><td>${lab[r.type]}</td><td>${esc(r.detail)}</td><td>${r.type==='made'?'<span class="risk lo">OK</span>':`<span class="risk ${r.hi?'hi':'lo'}">${r.hi?'High: number changed':'Check'}</span>`}</td></tr>`).join('')}</tbody></table></div>
+    <p class="hint" style="margin:10px 0 0">The reader now checks ${n('missed')+n('unasked')} place${n('missed')+n('unasked')===1?'':'s'} instead of re-reading the whole page. The same check runs on PDF proofs in <code>shuddhi_pdf.py diff</code>.</p></div>`;
+  if (fromBtn) toast('Revise checked.');
+}
+
+/* ---------- Approval ---------- */
+function vApprove(){
+  const c = counts();
+  const hist = D.history.map(h=>`<tr><td>${tstr(h.ts)}</td><td>${esc(h.doc)}</td><td>${esc(h.event)}</td><td>${esc(h.by)}</td><td>${h.acc??''}</td><td>${h.rej??''}</td><td><code>${esc(h.fp||'')}</code></td></tr>`).join('');
+  return `<div class="cols">
+    <section class="sheet">
+      <h2 class="s">${D.approved?'Approved for print':'Approve for print'}</h2>
+      ${D.approved ? `<p class="lede" style="margin-bottom:12px">Approved by ${esc(D.approved.by)} on ${tstr(D.approved.ts)}. Fingerprint <code>${esc(D.approved.fp)}</code> identifies this exact text; any later change produces a different fingerprint.</p>
+        <button class="btn ghost" data-act="reopen">Reopen for correction</button>`
+      : `<p class="lede" style="margin-bottom:12px">${c.open ? `Resolve every mark before approving. <b>${c.open}</b> of ${c.total} still open.` : 'Every mark is resolved. Record who approves this text for printing.'}</p>
+        <div style="display:grid;gap:12px;max-width:420px">
+          <label class="f">Approver’s name<input type="text" id="ap-name" placeholder="e.g. A. Baruah"></label>
+          <label class="f">Designation<input type="text" id="ap-desig" placeholder="e.g. Reviser"></label>
+        </div>
+        <p class="err" id="ap-err" role="alert"></p>
+        <button class="btn" data-act="approve" ${c.open?'disabled':''}>Approve for print</button>`}
+    </section>
+    <section class="sheet">
+      <h2 class="s">This document</h2>
+      <table><tbody>
+        <tr><th>Document</th><td>${esc(D.title)}</td></tr>
+        <tr><th>Marks accepted</th><td>${c.accepted}</td></tr>
+        <tr><th>Marks rejected</th><td>${c.rejected}</td></tr>
+        <tr><th>Marks open</th><td>${c.open}</td></tr>
+        <tr><th>Outputs</th><td><button class="btn ghost sm" data-act="dl-text">Corrected text</button> <button class="btn ghost sm" data-act="dl-log">Change log (CSV)</button></td></tr>
+      </tbody></table>
+      <p class="hint">In the full system the outputs also include the original Word file with every accepted change as a tracked change, and a marked-up PDF proof.</p>
+    </section>
+  </div>
+  <section class="sheet" style="margin-top:16px"><h2 class="s">History</h2>
+    ${hist?`<div class="tbl"><table><thead><tr><th>When</th><th>Document</th><th>Event</th><th>By</th><th>Accepted</th><th>Rejected</th><th>Fingerprint</th></tr></thead><tbody>${hist}</tbody></table></div>`:'<p class="hint" style="margin:0">No approvals recorded yet.</p>'}
+  </section>`;
+}
+
+/* ================= Actions ================= */
+function setStatus(id, st){ const m=D.marks.find(x=>x.id===id); if(m) m.status=st; }
+function focusMark(id){
+  ui.focus=id; const m=D.marks.find(x=>x.id===id);
+  if (m && ui.filter!=='all' && !(ui.filter==='open'&&m.status==='open') && !(ui.filter===m.kind&&m.status==='open') && !(ui.filter==='done'&&m.status!=='open')) ui.filter = m.status==='open'?'open':'done';
+  render(); const c=$('#card-'+id); if(c){ c.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}); }
+}
+const dlg=$('#dlg');
+function openPaste(){
+  $('#dlgC').innerHTML = `<div class="dh"><h2 id="dlgT">Check your own text</h2><button class="x" data-act="close" aria-label="Close">×</button></div>
+  <div class="db"><p class="lede" style="margin-bottom:12px">Paste text in English, Assamese, Bengali or Hindi. One paragraph per line. The same rule engine checks it straight away. AI suggestions run on the server in the full system, so they are not shown for your text here.</p>
+  <label class="f">Text<textarea id="p-text" placeholder="Paste or type here"></textarea></label>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin-top:12px">
+    <label class="f">Bengali-script text is in<select id="p-lang"><option value="as">Assamese</option><option value="bn">Bengali</option></select></label>
+    <button class="btn" data-act="run-paste">Check text</button>
+  </div><p class="err" id="p-err" role="alert"></p></div>`;
+  dlg.showModal(); $('#p-text').focus();
+}
+const A = {
+  accept:id=>{ setStatus(+id,'accepted'); render(); },
+  reject:id=>{ setStatus(+id,'rejected'); render(); },
+  undo:id=>{ setStatus(+id,'open'); render(); },
+  bulk:rule=>{ const n=D.marks.filter(m=>m.rule===rule&&m.bulk&&m.status==='open'); n.forEach(m=>m.status='accepted'); render(); toast(`${n.length} “${RULE_NAME[rule]}” fixes accepted. Undo any of them from its card.`); },
+  paste:openPaste,
+  close:()=>dlg.close(),
+  'run-paste':()=>{ const t=$('#p-text').value.normalize('NFC'); const lines=t.split(/\r?\n/).map(s=>s.replace(/\s+$/,'')).filter(s=>s.trim()); if(!lines.length) return $('#p-err').textContent='Paste some text first.';
+    D = newDoc('Your text', lines.map(l=>({s:'p',t:l})), $('#p-lang').value, null, 'pasted'); dlg.close(); ui.filter='open'; ui.focus=null; ui.tab='review'; render(); toast(`${D.marks.length} mark${D.marks.length===1?'':'s'} found.`); },
+  sample:()=>{ D = newDoc(SAMPLE_TITLE, SAMPLE, 'as', SAMPLE_AI, 'sample'); ui.filter='open'; ui.focus=null; render(); },
+  'dl-text':()=>{ download(`shuddhi-corrected-${Date.now()}.txt`, correctedText(), 'text/plain'); toast('Corrected text downloaded.'); },
+  'dl-log':()=>{ const q=v=>`"${String(v??'').replace(/"/g,'""')}"`; const rows=[['Mark','Type','Rule','Language','Paragraph','Before','After','Reason','Decision']].concat(D.marks.map(m=>[m.id,kindName[m.kind],RULE_NAME[m.rule],LANG_NAME[D.paras[m.p].lang],m.p+1,m.from,m.to??'(query)',m.why,m.status]));
+    download(`shuddhi-change-log-${Date.now()}.csv`, rows.map(r=>r.map(q).join(',')).join('\r\n'), 'text/csv'); toast('Change log downloaded.'); },
+  compare:()=>runCompare(true),
+  revise:()=>runRevise(true),
+  'rev-sample':()=>{ rev={...REV_SAMPLE}; render(); },
+  'cmp-sample':()=>{ cmp={copy:COPY_SAMPLE,proof:PROOF_SAMPLE}; render(); },
+  approve:async ()=>{ const name=$('#ap-name').value.trim(), desig=$('#ap-desig').value.trim(); if(!name||!desig) return $('#ap-err').textContent='Enter the approver’s name and designation.';
+    const c=counts(), fp=await sha256(correctedText()), by=`${name}, ${desig}`; D.approved={by,ts:Date.now(),fp};
+    D.history.unshift({ts:Date.now(),doc:D.title,event:'Approved for print',by,acc:c.accepted,rej:c.rejected,fp}); render(); toast('Approved for print. The approval is recorded in the history.'); },
+  reopen:()=>{ D.history.unshift({ts:Date.now(),doc:D.title,event:'Reopened for correction',by:'Current user',fp:D.approved.fp}); D.approved=null; render(); toast('Reopened. Marks can be changed again; a new approval will be needed.'); }
+};
+document.addEventListener('click',e=>{
+  const tab=e.target.closest('[data-tab]'); if(tab){ ui.tab=tab.dataset.tab; render(); return; }
+  const f=e.target.closest('[data-filter]'); if(f){ ui.filter=f.dataset.filter; render(); return; }
+  const a=e.target.closest('[data-act]'); if(a && A[a.dataset.act]){ A[a.dataset.act](a.dataset.id); return; }
+  const mk=e.target.closest('[data-mark]'); if(mk){ focusMark(+mk.dataset.mark); }
+});
+dlg.addEventListener('click',e=>{ if(e.target===dlg) dlg.close(); });
+document.addEventListener('keydown',e=>{ if((e.key==='ArrowRight'||e.key==='ArrowLeft') && e.target.matches('[role=tab]')){ const tabs=[...document.querySelectorAll('[role=tab]')]; const i=tabs.indexOf(e.target); const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length]; ui.tab=n.dataset.tab; render(); document.querySelector(`[data-tab="${ui.tab}"]`).focus(); }});
+
+load(); render();
+</script>
+</body>
+</html>
